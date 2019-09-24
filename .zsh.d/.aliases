@@ -1,0 +1,2 @@
+alias sdot='$HOME/.dotfiles/bootstrap.sh -f'
+
