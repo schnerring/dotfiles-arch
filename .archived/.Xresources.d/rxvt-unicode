@@ -1,0 +1,25 @@
+! xterm-256color
+URxvt.termName: xterm-256color
+
+! scrolling
+URxvt.scrollBar:            false
+URxvt.scrollTtyOutput:      false
+URxvt.scrollWithBuffer:     true
+URxvt.scrollTtyKeypress:    true
+URxvt.secondaryScreen:      1
+URxvt.secondaryScroll:      0
+URxvt.secondaryWheel:       1
+
+! clickable URLs
+URxvt.perl-ext-common:      default,matcher
+URxvt.url-launcher:         /usr/bin/firefox
+URxvt.matcher.button:       1
+URxvt.matcher.rend.0:       Uline Bold fg5
+
+! font spacing
+URxvt.letterSpace:          -1
+
+! misc
+URxvt.cursorBlink:          true
+URxvt.name:                 rxvt
+URxvt.intensityStyles:      false
