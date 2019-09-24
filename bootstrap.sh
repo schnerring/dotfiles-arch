@@ -6,12 +6,11 @@ cd "$(dirname "${0}")"
 
 function doIt() {
     rsync --exclude ".git/" \
-          --exclude "etc" \
           --exclude "bootstrap.sh" \
-          --exclude "docs/" \
-          --exclude "*.md" \
-          --exclude ".archived/" \
           --exclude ".editorconfig" \
+          --exclude ".archived/" \
+          --exclude "*.md" \
+          --exclude "etc" \
           -avh --no-perms . ~
 
     source ~/.zshrc

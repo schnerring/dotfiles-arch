@@ -8,3 +8,5 @@ export PATH="$(yarn global bin):$PATH"
 export DOTNET_ROOT="$HOME/dotnet"
 export PATH=$PATH:$HOME/dotnet
 
+# Google Drive
+export GOOGLE_DRIVE="$HOME/Google Drive"
