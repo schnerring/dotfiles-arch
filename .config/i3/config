@@ -234,6 +234,9 @@ exec --no-startup-id feh --recursive --randomize --bg-fill ~/.wallpaper
 # Start Compton
 exec --no-startup-id compton --config $XDG_CONFIG_HOME/compton/compton.conf -b
 
+# XDG autostart
+exec --no-startup-id bash $XDG_CONFIG_HOME/i3/autostart.sh
+
 # RULES
 for_window [class="Spotify"]          move to workspace $ws9
 for_window [class="[Kk]ee[Pp]ass2"]   move to workspace $ws9
