@@ -1,6 +1,6 @@
 # Set GTK themes
-GTK_THEME=Equilux
-GTK_RC_FILES=/usr/share/themes/Equilux/gtk-2.0/gtkrc
+GTK_THEME=NumixSolarizedDarkBlue
+GTK_RC_FILES=/usr/share/themes/NumixSolarizedDarkBlue/gtk-2.0/gtkrc
 
 # Enable QGtkStyle theme engine for Qt5
 QT_QPA_PLATFORMTHEME=gtk2
