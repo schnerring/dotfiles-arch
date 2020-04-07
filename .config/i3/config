@@ -240,3 +240,4 @@ exec --no-startup-id bash $XDG_CONFIG_HOME/i3/autostart.sh
 # RULES
 for_window [class="Spotify"]        move to workspace $ws9
 for_window [class="KeePassXC"]      move to workspace $ws9
+for_window [class="Mullvad VPN"]    move to workspace $ws8
