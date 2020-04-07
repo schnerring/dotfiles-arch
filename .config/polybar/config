@@ -53,7 +53,7 @@ secondary =         ${solarized.base1}
 [colors]
 inherit =   solarized/dark
 accent =    ${solarized.blue}
-alert =     ${solarized.red}
+alert =     ${solarized.yellow}
 
 [bar/base]
 monitor = ${env:MONITOR}
@@ -61,13 +61,13 @@ monitor = ${env:MONITOR}
 width = 100%
 height = 25
 
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.primary}
 
 line-size = 2
-line-color = #f00
+line-color = ${colors.primary}
 
 padding-left = 2
 padding-right = 2
@@ -76,85 +76,41 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = monospace:size=9:antialias=true;2
-font-1 = monospace:size=6:antialias=true;0
 
 locale = de_DE.UTF-8
 
-;tray-position = right
-;tray-padding = 2
-;tray-background = #0063ff
-
 cursor-click = pointer
-cursor-scroll = ns-resize
 
 [bar/top]
 inherit = bar/base
 
 modules-left = i3
 modules-center = xwindow
-modules-right = date time
+modules-right = player-title pulseaudio date powermenu
 
+;tray-position = right
+;tray-padding = 2
+;tray-background = ${colors.background-alt}
 
-;wm-restack = bspwm
 ;wm-restack = i3
-
 ;override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-[bar/bottom]
-inherit = bar/base
-
-bottom = true
-
-modules-left = cpu memory
-modules-center =
-modules-right = filesystem network
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
 
 format = <label>
 format-background = ${colors.background-alt}
+format-foreground = ${colors.primary-alt}
 format-padding = 4
 
 label = %title%
-label-maxlen = 50
+label-maxlen = 100
 
-label-empty = Empty
-label-empty-foreground = #707880
-
-[module/filesystem]
-type = internal/fs
-
-mount-0 = /
-mount-1 = /var
-mount-2 = /home
-
-format-mounted = <label-mounted> <bar-used>
-
-label-mounted = %mountpoint%: %free% free
-
-bar-used-indicator =
-bar-used-width = 32
-bar-used-foreground-0 = ${colors.primary}
-bar-used-foreground-1 = ${colors.primary}
-bar-used-foreground-2 = ${colors.primary}
-bar-used-foreground-3 = ${colors.primary}
-bar-used-foreground-4 = ${colors.alert}
-bar-used-fill = █
-bar-used-fill-font = 2
-bar-used-empty = █
-bar-used-empty-font = 2
-bar-used-empty-foreground = ${colors.background-alt}
-
-
-label-unmounted = %mountpoint% not mounted
-#label-unmounted-foreground = ${colors.foreground-alt}
+label-empty = --- EMPTY ---
+label-empty-foreground = ${colors.secondary}
 
 [module/i3]
 type = internal/i3
@@ -168,8 +124,8 @@ index-sort = true
 format = <label-state> <label-mode>
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = #0f0
+label-mode-foreground = ${colors.primary-alt}
+label-mode-background = ${colors.background-alt}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
@@ -189,98 +145,19 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%!
+label-urgent-foreground = ${colors.background-alt}
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.secondary}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-
-format = <label> <ramp-coreload>
-format-prefix = "CPU"
-format-prefix-foreground = ${colors.secondary}
-format-prefix-margin = 1
-
-label = %percentage:2%%
-
-ramp-coreload-font = 2
-ramp-coreload-foreground = ${colors.primary}
-ramp-coreload-spacing = 1
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
-
-[module/memory]
-type = internal/memory
-
-format = <label> <bar-used>
-format-prefix = "RAM"
-format-prefix-foreground = ${colors.secondary}
-format-prefix-margin = 1
-
-label = %gb_free% free
-
-bar-used-indicator =
-bar-used-width = 32
-bar-used-foreground-0 = ${colors.primary}
-bar-used-foreground-1 = ${colors.primary}
-bar-used-foreground-2 = ${colors.primary}
-bar-used-foreground-3 = ${colors.primary}
-bar-used-foreground-4 = ${colors.alert}
-bar-used-fill = █
-bar-used-fill-font = 2
-bar-used-empty = █
-bar-used-empty-font = 2
-bar-used-empty-foreground = ${colors.background-alt}
-
-[module/network]
-type = internal/network
-interface = enp5s0
-
-format-connected-prefix = "爵"
-format-connected-prefix-foreground = ${colors.secondary}
-format-connected-prefix-margin = 1
-
-label-connected = %local_ip% %downspeed:9% ﰬ %upspeed:9% ﰵ
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/time]
+[module/date]
 type = internal/date
 interval = 1
+
+date = %d.%m.%Y
+date-alt = %d.%m.%Y
 
 time = %H:%M:%S
 time-alt = %H:%M:%S %Z
@@ -288,18 +165,7 @@ time-alt = %H:%M:%S %Z
 format-prefix = 
 format-prefix-margin = 1
 
-label = %time%
-
-[module/date]
-type = internal/date
-interval = 60
-
-date = %d.%m.%Y
-
-format-prefix = 
-format-prefix-margin = 1
-
-label = %date%
+label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -307,43 +173,18 @@ use-ui-max = false
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 墳 %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.primary}
 
-label-muted = 婢 muted
-label-muted-foreground = ${colors.foreground-alt}
+label-muted = 婢 --- MUTED ---
+label-muted-foreground = ${colors.secondary}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground = ${colors.primary}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-fill = ─
 bar-volume-empty = ─
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = A
-ramp-1 = B
-ramp-2 = C
-ramp-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.secondary}
 
 [module/powermenu]
 type = custom/menu
@@ -353,15 +194,15 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = ﰸ cancel
+label-open-foreground = ${colors.primary}
+label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.secondary}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = poweroff
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
@@ -369,51 +210,19 @@ menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
 menu-1-1-exec = sudo reboot
 
-menu-2-0 = power off
+menu-2-0 = poweroff
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-; Spotify with playerctl
-[module/spotify]
-modules = player-previous player-playpause player-next player-title 
-
-[module/player-previous]
-type = custom/text
-interval = 1
-content = 
-content-foreground = ${colors.secondary}
-click-left = playerctl -p spotify previous
-
-[module/player-stop]
-type = custom/text
-interval = 1
-content = 
-content-foreground = ${colors.secondary}
-click-left = playerctl -p spotify stop
-
-[module/player-playpause]
-type = custom/script
-interval = 1
-label = %output%
-label-foreground = ${colors.secondary}
-exec = $XDG_CONFIG_HOME/polybar/scripts/playerctl-playpause.sh
-click-left = playerctl -p spotify play-pause
-
-[module/player-next]
-type = custom/text
-interval = 1
-content = 
-content-foreground = ${colors.secondary}
-click-left = playerctl -p spotify next
-
 [module/player-title]
 type = custom/script
 interval = 1
-label = "%output:0:90:...%"
+label = " %output:0:50:...%"
 exec = $XDG_CONFIG_HOME/polybar/scripts/playerctl-title.sh
-scroll-up = playerctl -p spotify previous
-scroll-down = playerctl -p spotify next
+scroll-up = playerctl previous -p spotify
+scroll-down = playerctl next -p spotify
+click-left = playerctl play-pause -p spotify
 
 [settings]
 screenchange-reload = true
@@ -428,5 +237,3 @@ format-padding = 1
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-; vim:ft=dosini

@@ -1,15 +1,15 @@
 #!/bin/bash
 
-player_status=$(playerctl -p spotify status 2> /dev/null)
+player_status=$(playerctl status -p spotify 2> /dev/null)
+
 if [[ $? -eq 0 ]]; then
-    metadata="$(playerctl metadata --format '{{ artist }} - {{ title }}')"
+    metadata="$(playerctl metadata -p spotify --format '{{ artist }} - {{ title }}')"
 fi
 
-# Foreground color formatting tags are optional
 if [[ $player_status = "Playing" ]]; then
     echo "$metadata" 
 elif [[ $player_status = "Paused" ]]; then
-    echo "%{F#404552}Paused"
+    echo "%{F#586e75}--- PAUSED ---"
 else
-    echo "%{F#404552} not connected" # Greyed out icon when stopped
+    echo "%{F#586e75}--- NOT CONNECTED ---"
 fi
