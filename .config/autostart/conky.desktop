@@ -1,8 +1,1 @@
-[Desktop Entry]
-Type=Application
-Name=Conky
-Comment=Light-weight system monitor for X.
-Exec=conky --daemonize --pause=5
-StartupNotify=false
-Terminal=false
-NoDisplay=true
+/usr/share/applications/conky.desktop
