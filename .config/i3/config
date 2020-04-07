@@ -245,7 +245,7 @@ for_window [class="Telegram*"]          move to workspace $ws5
 for_window [class="TeamSpeak 3"]        move to workspace $ws5
 
 for_window [class="Steam"]              move to workspace $ws7
-for_window [class="Mullvad VPN"]        move to workspace $ws7
-for_window [class="protonmail-bridge"]  move to workspace $ws7
 
 for_window [class="KeePassXC"]          move to workspace $ws9
+for_window [class="Mullvad VPN"]        move to workspace $ws9
+for_window [class="protonmail-bridge"]  move to workspace $ws9
