@@ -1,6 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=picom
+Comment=A lightweight compositor for X11 (previously a compton fork)
 Exec=picom -b
 StartupNotify=false
 Terminal=false
+NoDisplay=true
