@@ -231,9 +231,6 @@ exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/scripts/launch.sh
 # Reload Wallpaper
 exec --no-startup-id feh --recursive --randomize --bg-fill ~/.wallpaper
 
-# Start Compton
-exec --no-startup-id compton --config $XDG_CONFIG_HOME/compton/compton.conf -b
-
 # XDG autostart
 exec --no-startup-id bash $XDG_CONFIG_HOME/i3/autostart.sh
 
