@@ -235,9 +235,9 @@ exec --no-startup-id feh --recursive --randomize --bg-fill ~/.wallpaper
 exec --no-startup-id bash $XDG_CONFIG_HOME/i3/autostart.sh
 
 # RULES
-for_window [class="firefox"]            move to workspace $ws2
-for_window [class="Thunderbird"]        move to workspace $ws2
+for_window [class="firefox"]            move to workspace $ws1
 
+for_window [class="Thunderbird"]        move to workspace $ws3
 for_window [class="Spotify"]            move to workspace $ws3
 
 for_window [class="Signal"]             move to workspace $ws5
