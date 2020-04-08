@@ -39,7 +39,11 @@ key[ShiftTab]="${terminfo[kcbt]}"
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
 [[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
-
+                                # CTRL+left
+                                bindkey    "^[[1;5D"           backward-word
+                                # CTRL+right
+                                bindkey    "^[[1;5C"           forward-word
+                                
 ################################################################################
 # DEFAULTS FROM WIZARD
 ################################################################################
