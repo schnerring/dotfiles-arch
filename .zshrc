@@ -94,5 +94,3 @@ source /usr/share/nvm/init-nvm.sh
 
 alias sdot='~/repos/private/dotfiles-arch/bootstrap.sh -f'
 
-alias gddown='rclone sync gdrive: $GOOGLE_DRIVE --progress'
-alias gdup='rclone sync $GOOGLE_DRIVE gdrive: --progress'
