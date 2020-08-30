@@ -223,6 +223,8 @@ client.background       $background-dark
 
 #client.background       $background-light
 
+focus_follows_mouse no
+
 # i3-gaps
 for_window [class="^.*"] border pixel 2
 gaps inner 10

@@ -1,10 +1,8 @@
 # .NET Core
 export DOTNET_ROOT="$HOME/dotnet"
-export PATH=$DOTNET_ROOT:$PATH
 
+# remove duplicates
+# see https://wiki.archlinux.org/index.php/Zsh#Configuring_$PATH
 typeset -U PATH path
 path=($DOTNET_ROOT "$path[@]")
 export PATH
-
-# Google Drive
-export GOOGLE_DRIVE="$HOME/Google Drive"
