@@ -11,6 +11,7 @@ function doIt() {
           --exclude ".archived/" \
           --exclude "*.md" \
           --exclude "etc" \
+          --exclude "LICENSE" \
           -avh --no-perms . ~
 
     source ~/.zshrc
